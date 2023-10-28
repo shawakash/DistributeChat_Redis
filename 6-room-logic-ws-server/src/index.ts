@@ -46,7 +46,7 @@ wss.on("connection", async (ws, req) => {
             // })
         }
     });
-    ws.on("disconnect", () => {
+    ws.on("close", () => {
         RedisSubscriptionManager.getInstance().unsubscribe(wsId.toString(), users[wsId].room);
     })
 });
